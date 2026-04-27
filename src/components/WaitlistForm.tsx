@@ -133,7 +133,7 @@ const WaitlistForm = ({ simplified = false }: WaitlistFormProps) => {
       {!simplified && (
         <div>
           <label htmlFor="firstName" className="block text-sm font-medium text-foreground mb-1.5">
-            Full Name
+            Name
           </label>
           <input
             id="firstName"
