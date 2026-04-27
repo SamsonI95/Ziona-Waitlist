@@ -9,7 +9,8 @@ export const handler = async (event) => {
     const body = typeof event.body === 'string' ? JSON.parse(event.body) : event.body;
     const email = body?.email || body?.payload?.data?.email || body?.data?.email;
     const name = body?.name || body?.payload?.data?.name || body?.data?.name;
-    const recipientName = name || 'there';
+    const recipientName = name ? name.trim() : "";
+    const greeting = recipientName ? `Hi ${recipientName},` : `Hi,`;
 
     if (!email) {
       return { statusCode: 400, body: JSON.stringify({ error: 'Missing email address' }) };
@@ -65,16 +66,16 @@ export const handler = async (event) => {
             <table class="email-container" align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto; background-color: #ffffff; border-radius: 0 0 16px 16px; overflow: hidden; box-shadow: 0 10px 25px rgba(94, 43, 151, 0.08);">
                 
                 <tbody><tr>
-                    <td bgcolor="#742092" style="padding: 60px 30px; text-align: center; border-bottom: 4px solid #D4AF37;">
+                    <td bgcolor="#742092" style="padding: 30px 24px; text-align: center; border-bottom: 4px solid #D4AF37;">
                         <img src="https://res.cloudinary.com/dz1wzvee5/image/upload/v1772476654/meta-image_hlc3uu.png" alt="Ziona Logo" style="width: 220px; max-width: 100%; height: auto; display: inline-block; filter: brightness(0) invert(1);">
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="content-padding" style="padding: 50px 60px 40px 60px; background-color: #ffffff;">
+                    <td class="content-padding" style="padding: 32px 32px 32px 32px; background-color: #ffffff;">
                         
                         <p style="margin: 0 0 20px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 22px; color: #742092; font-weight: bold;">
-                            Hi ${recipientName}, you made it! 👋
+                            ${greeting} you made it! 👋
                         </p>
                         
                         <p style="margin: 0 0 28px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.6; color: #4A4A4A;">
@@ -170,7 +171,7 @@ export const handler = async (event) => {
                 </tr>
 
                 <tr>
-                    <td bgcolor="#F5EEF8" style="padding: 60px 20px; text-align: center; color: #430A4E;">
+                    <td bgcolor="#F5EEF8" style="padding: 32px 20px; text-align: center; color: #430A4E;">
                         <table role="presentation" align="center" style="margin: 0 auto; width: auto;">
                             <tbody><tr>
                                 <td align="center">

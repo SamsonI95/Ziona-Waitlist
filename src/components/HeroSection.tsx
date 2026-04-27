@@ -16,22 +16,7 @@ const HeroSection = () => {
             <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-lg mx-auto md:mx-0">
               A modern, safe space built for faith-centered community.
             </p>
-            
-            <div className="hidden md:block mt-8 flex items-center gap-2 justify-start">
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
-                  <div
-                    key={i}
-                    className="w-8 h-8 rounded-full bg-primary-tint border-2 border-background flex items-center justify-center text-xs font-semibold text-primary"
-                  >
-                    {String.fromCharCode(64 + i)}
-                  </div>
-                ))}
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Early believers joining the movement.
-              </p>
-            </div>
+
           </div>
           
           <div className="w-full max-w-md mx-auto md:max-w-none">
