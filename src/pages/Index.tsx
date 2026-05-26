@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import StickyCTA from "@/components/StickyCTA";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -9,6 +10,7 @@ const Index = () => {
       <main>
         <HeroSection />
       </main>
+      <StickyCTA />
       <Footer />
     </div>
   );

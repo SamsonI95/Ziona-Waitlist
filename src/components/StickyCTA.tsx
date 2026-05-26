@@ -26,7 +26,7 @@ const StickyCTA = () => {
   return (
     <div className="md:hidden fixed bottom-6 left-0 right-0 z-40 px-6 animate-in fade-in slide-in-from-bottom-4 duration-300">
       <a
-        href="#waitlist-bottom"
+        href="#waitlist-top"
         className="flex items-center justify-center w-full h-14 bg-primary text-primary-foreground font-bold rounded-xl shadow-xl shadow-primary/20 active:scale-95 transition-all"
       >
         Claim my spot

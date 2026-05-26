@@ -19,7 +19,7 @@ const HeroSection = () => {
 
           </div>
           
-          <div className="w-full max-w-md mx-auto md:max-w-none">
+          <div id="waitlist-top" className="w-full max-w-md mx-auto md:max-w-none">
             <div className="rounded-2xl bg-card p-6 md:p-8 shadow-2xl border border-border">
               <WaitlistForm />
             </div>
