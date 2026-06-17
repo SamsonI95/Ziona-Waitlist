@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary-brand: #742092;
+    --secondary-brand: #d396e8;
+    --tertiary-brand: #e4c0f1;
+    --text-brand-inverse: #f6eafa;
+    --neutral-text-primary: #181419;
+    --neutral-text-secondary: #4e4252;
+    --neutral-text-tertiary: #836f8b;
+    --neutral-background-secondary: #faf9fa;
+    --neutral-background-tertiary: #eeebef;
+    --neutral-border-secondary: #9c8ba2;
+    --brand-inverse: #e4c0f1;
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: #a41313;
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --radius: 0.625rem;
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
+
+    /* Custom tokens */
+    --glow: 0 0% 70%;
+    --surface: 0 0% 96%;
+    --hero-gradient: linear-gradient(
+      135deg,
+      hsl(0 0% 3%) 0%,
+      hsl(0 0% 12%) 100%
+    );
+    --light-glow: radial-gradient(
+      ellipse at 50% 30%,
+      hsl(0 0% 100% / 0.08) 0%,
+      transparent 70%
+    );
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    /* @apply bg-background text-foreground antialiased; */
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(0 0% 70%) 0%, hsl(0 0% 100%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* .hero-bg {
+     background: var(--hero-gradient); 
+  } */
+
+  .bg-section-alt {
+    background: hsl(var(--muted));
+  }
+
+  .font-logo {
+    font-family: "Syne", sans-serif;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .fade-in-delay-1 {
+    animation-delay: 0.15s;
+  }
+
+  .fade-in-delay-2 {
+    animation-delay: 0.3s;
+  }
+
+  .fade-in-delay-3 {
+    animation-delay: 0.45s;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
