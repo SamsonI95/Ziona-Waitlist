@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,73 +9,63 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 282 64% 12%;
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary-brand: #742092;
+    --secondary-brand: #d396e8;
+    --tertiary-brand: #e4c0f1;
+    --text-brand-inverse: #f6eafa;
+    --neutral-text-primary: #181419;
+    --neutral-text-secondary: #4e4252;
+    --neutral-text-tertiary: #836f8b;
+    --neutral-background-secondary: #faf9fa;
+    --neutral-background-tertiary: #eeebef;
+    --neutral-border-secondary: #9c8ba2;
+    --brand-inverse: #e4c0f1;
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: #a41313;
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --radius: 0.625rem;
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
 
-    --card: 0 0% 100%;
-    --card-foreground: 282 64% 12%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 282 64% 12%;
-
-    --primary: 282 64% 35%;
-    --primary-foreground: 0 0% 100%;
-    --primary-dark: 284 65% 28%;
-    --primary-light: 282 51% 46%;
-    --primary-tint: 279 48% 89%;
-
-    --secondary: 279 48% 89%;
-    --secondary-foreground: 282 64% 12%;
-
-    --muted: 280 20% 96%;
-    --muted-foreground: 280 10% 46%;
-
-    --accent: 37 100% 33%;
-    --accent-foreground: 0 0% 100%;
-    --accent-light: 38 77% 45%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 280 20% 90%;
-    --input: 280 20% 90%;
-    --ring: 282 64% 35%;
-
-    --radius: 0.75rem;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 282 64% 35%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 279 48% 89%;
-    --sidebar-accent-foreground: 282 64% 12%;
-    --sidebar-border: 280 20% 90%;
-    --sidebar-ring: 282 64% 35%;
-
-    --font-heading: 'DM Serif Display', serif;
-    --font-body: 'Inter', sans-serif;
-  }
-
-  .dark {
-    --background: 282 64% 4%;
-    --foreground: 280 20% 96%;
-    --card: 282 50% 8%;
-    --card-foreground: 280 20% 96%;
-    --popover: 282 50% 8%;
-    --popover-foreground: 280 20% 96%;
-    --primary: 282 51% 46%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 282 30% 15%;
-    --secondary-foreground: 280 20% 96%;
-    --muted: 282 30% 15%;
-    --muted-foreground: 280 15% 60%;
-    --accent: 38 77% 45%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 282 30% 18%;
-    --input: 282 30% 18%;
-    --ring: 282 51% 46%;
+    /* Custom tokens */
+    --glow: 0 0% 70%;
+    --surface: 0 0% 96%;
+    --hero-gradient: linear-gradient(
+      135deg,
+      hsl(0 0% 3%) 0%,
+      hsl(0 0% 12%) 100%
+    );
+    --light-glow: radial-gradient(
+      ellipse at 50% 30%,
+      hsl(0 0% 100% / 0.08) 0%,
+      transparent 70%
+    );
   }
 }
 
@@ -82,43 +75,65 @@
   }
 
   body {
-    @apply bg-background text-foreground;
-    font-family: var(--font-body);
+    /* @apply bg-background text-foreground antialiased; */
+    font-family: "Plus Jakarta Sans", sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Plus Jakarta Sans", sans-serif;
   }
 }
 
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    background: linear-gradient(135deg, hsl(0 0% 70%) 0%, hsl(0 0% 100%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  .bg-hero-gradient {
-    background: linear-gradient(180deg, hsl(var(--primary-tint)) 0%, hsl(var(--background)) 100%);
-  }
+  /* .hero-bg {
+     background: var(--hero-gradient); 
+  } */
 
   .bg-section-alt {
     background: hsl(var(--muted));
   }
 
-  .bg-cta-gradient {
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-dark)) 100%);
+  .font-logo {
+    font-family: "Syne", sans-serif;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .fade-in-delay-1 {
+    animation-delay: 0.15s;
+  }
+
+  .fade-in-delay-2 {
+    animation-delay: 0.3s;
+  }
+
+  .fade-in-delay-3 {
+    animation-delay: 0.45s;
   }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  20%       { transform: translateX(-5px); }
-  40%       { transform: translateX(5px); }
-  60%       { transform: translateX(-4px); }
-  80%       { transform: translateX(4px); }
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
