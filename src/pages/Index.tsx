@@ -1,17 +1,21 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import StickyCTA from "@/components/StickyCTA";
-import Footer from "@/components/Footer";
+import FoundationSection from "@/components/FoundationSection";
+import WhatWeDoSection from "@/components/WhatWeDoSection";
+import ZionaSection from "@/components/ZionaSection";
+import ContactSection from "@/components/ContactSection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       <Navbar />
-      <main>
+      <main className="pt-15 lg:pt-20">
         <HeroSection />
+        <FoundationSection />
+        <WhatWeDoSection />
+        <ZionaSection />
+        <ContactSection />
       </main>
-      <StickyCTA />
-      <Footer />
     </div>
   );
 };
