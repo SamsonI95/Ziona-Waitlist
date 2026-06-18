@@ -9,38 +9,26 @@ import { TbBrandAppleFilled } from "react-icons/tb";
 
 const HeroSection = () => {
   return (
-    <div className="relative hero-bg overflow-hidden ">
-      <section className="flex flex-col items-center px-4 lg:px-61">
-        <h3 className="self-stretch text-center justify-start font-bree text-4xl lg:text-6xl font-normal">Create, Share and Shine for Christ</h3>
-        <p className="self-stretch text-center justify-start text-xs lg:text-2xl font-normal my-4 lg:mt-4 lg:mb-8">A space where your faith meets creativity — videos, stories, and inspiration that uplift, connect, and glorify God.</p>
-        <div className="flex w-full self-center items-center justify-center gap-3 lg:gap-4 lg:justify-center">
-          {/* App Store */}
-          <button className="flex items-center justify-center gap-2 rounded-2xl bg-black px-3 py-2 text-white transition hover:scale-[1.02] hover:opacity-90 lg:gap-3 lg:px-5 lg:py-3">
-            <TbBrandAppleFilled className="h-5 w-5 text-white lg:h-7 lg:w-7" />
+    <section className="bg-hero-gradient pt-24 pb-12 md:pt-32 md:pb-20">
+      <div className="container max-w-[1100px]">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+          <div className="text-center md:text-left">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl leading-tight text-foreground mb-6">
+              A Social Platform That Puts{" "}
+              <span className="text-gradient">Christian Faith</span> First.
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground mb-2 font-medium">
+              Create. Share. Engage.
+            </p>
+            <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-lg mx-auto md:mx-0">
+              A modern, safe space built for faith-centered community.
+            </p>
 
-            <div className="flex flex-col items-start leading-tight">
-              <span className="text-[9px] font-medium uppercase tracking-wide text-white/70 lg:text-[11px]">
-                Download on the
-              </span>
-
-              <span className="text-sm font-semibold lg:text-lg">
-                App Store
-              </span>
-            </div>
-          </button>
-
-          {/* Google Play */}
-          <button className="flex items-center justify-center gap-2 rounded-2xl bg-black px-3 py-2 text-white transition hover:scale-[1.02] hover:opacity-90 lg:gap-3 lg:px-5 lg:py-3">
-            <img src={playstore} alt="playstore" className="h-5 w-5 lg:h-7 lg:w-7" />
-
-            <div className="flex flex-col items-start leading-tight">
-              <span className="text-[9px] font-medium uppercase tracking-wide text-white/70 lg:text-[11px]">
-                Get it on
-              </span>
-
-              <span className="text-sm font-semibold lg:text-lg">
-                Google Play
-              </span>
+          </div>
+          
+          <div className="w-full max-w-md mx-auto md:max-w-none">
+            <div className="rounded-2xl bg-card p-6 md:p-8 shadow-2xl border border-border">
+              <WaitlistForm />
             </div>
           </button>
         </div>
@@ -71,7 +59,6 @@ const HeroSection = () => {
           />
         </div>
       </section>
-    </div>
   );
 };
 
