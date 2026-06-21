@@ -1,5 +1,9 @@
 /// <reference types="vite/client" />
 
 interface Window {
-  fbq: any;
+  fbq?: (
+    method: "track" | "trackCustom",
+    eventName: string,
+    parameters?: Record<string, unknown>,
+  ) => void;
 }
