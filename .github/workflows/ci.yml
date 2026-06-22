@@ -1,0 +1,95 @@
+name: Ziona Waitlist CI/CD
+
+on:
+  push:
+    branches: [main, staging]
+  pull_request:
+    branches: [main, staging]
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: "20"
+
+concurrency:
+  group: waitlist-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Lint, Test & Build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Test
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload build artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: waitlist-dist
+          path: dist
+          if-no-files-found: ignore
+
+  deploy-staging:
+    name: Deploy Staging
+    runs-on: ubuntu-latest
+    needs: quality
+    if: github.event_name == 'push' && github.ref == 'refs/heads/staging'
+    environment: staging
+    permissions:
+      contents: read
+
+    steps:
+      - name: Trigger Netlify staging deploy
+        env:
+          NETLIFY_DEPLOY_HOOK_URL: ${{ secrets.NETLIFY_STAGING_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$NETLIFY_DEPLOY_HOOK_URL" ]; then
+            echo "::notice::NETLIFY_STAGING_DEPLOY_HOOK_URL is not configured. Checks passed; deploy hook skipped."
+            exit 0
+          fi
+          curl -fsS -X POST "$NETLIFY_DEPLOY_HOOK_URL"
+
+  deploy-production:
+    name: Deploy Production
+    runs-on: ubuntu-latest
+    needs: quality
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    environment: production
+    permissions:
+      contents: read
+
+    steps:
+      - name: Trigger Netlify production deploy
+        env:
+          NETLIFY_DEPLOY_HOOK_URL: ${{ secrets.NETLIFY_PRODUCTION_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$NETLIFY_DEPLOY_HOOK_URL" ]; then
+            echo "::notice::NETLIFY_PRODUCTION_DEPLOY_HOOK_URL is not configured. Checks passed; deploy hook skipped."
+            exit 0
+          fi
+          curl -fsS -X POST "$NETLIFY_DEPLOY_HOOK_URL"
